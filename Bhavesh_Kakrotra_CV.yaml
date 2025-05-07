@@ -1,14 +1,14 @@
 cv:
   name: Bhavesh Kakrotra
-  location: Location
-  email: john.doe@example.com
-  phone: +1-609-999-9995
-  website:
+  location: Bangalore, India
+  email: bhaveshkakrotra@gmail.com
+  phone: +91-855-300-7699
+  website: https://bhaveshs6.medium.com
   social_networks:
     - network: LinkedIn
-      username: john.doe
+      username: bhaveshs6
     - network: GitHub
-      username: john.doe
+      username: bhaveshs6
   sections:
     welcome_to_RenderCV!:
       - '[RenderCV](https://rendercv.com) is a Typst-based CV framework designed for academics and engineers, with Markdown syntax support.'
