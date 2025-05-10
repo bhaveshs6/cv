@@ -1,0 +1,31 @@
+name: Render CV and Upload Artifact
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  render-cv:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install rendercv
+        run: pip install rendercv[full]
+
+      - name: Render CV
+        run: rendercv render Bhavesh_Kakrotra_CV.yaml
+
+      - name: Upload CV as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Bhavesh_Kakrotra_CV
+          path: rendercv_output/Bhavesh_Kakrotra.CV.pdf
