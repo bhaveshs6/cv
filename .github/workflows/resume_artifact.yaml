@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Bhavesh_Kakrotra_CV
-          path: rendercv_output/Bhavesh_Kakrotra.CV.pdf
+          path: rendercv_output/Bhavesh_Kakrotra_CV.pdf
         continue-on-error: false
 
       # Optional Step: Clean up
