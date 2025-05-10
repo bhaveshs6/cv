@@ -21,13 +21,13 @@ cv:
         authors:
           - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
         date: 2022-08
-        url: 
+        url: https://rhtapps.redhat.com/verify?certId=210100327
 
       - title: Red Hat Certified System Administrator
         authors:
           - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
         date: 2022-08
-        url: 
+        url: https://rhtapps.redhat.com/verify?certId=210100327
 
     experience:
       - company: Sigmoid Analytics
@@ -82,16 +82,16 @@ cv:
         location: Nagpur, India
         start_date: 2018-08
         end_date: 2022-07
-        
+
 design:
-  theme: moderncv
+  theme: engineeringclassic
   page:
     size: us-letter
     top_margin: 2cm
     bottom_margin: 2cm
     left_margin: 2cm
     right_margin: 2cm
-    show_page_numbering: true
+    show_page_numbering: false
     show_last_updated_date: true
   colors:
     text: rgb(0, 0, 0)
@@ -101,58 +101,57 @@ design:
     links: rgb(0, 79, 144)
     last_updated_date_and_page_numbering: rgb(128, 128, 128)
   text:
-    font_family: Fontin
+    font_family: Raleway
     font_size: 10pt
     leading: 0.6em
     alignment: justified
     date_and_location_column_alignment: right
   links:
-    underline: true
+    underline: false
     use_external_link_icon: false
   header:
-    name_font_family: Fontin
-    name_font_size: 25pt
+    name_font_family: Raleway
+    name_font_size: 30pt
     name_bold: false
     photo_width: 3.5cm
     vertical_space_between_name_and_connections: 0.7cm
     vertical_space_between_connections_and_first_section: 0.7cm
     horizontal_space_between_connections: 0.5cm
-    connections_font_family: Fontin
+    connections_font_family: Raleway
     separator_between_connections: ''
     use_icons_for_connections: true
     alignment: left
   section_titles:
-    type: moderncv
-    font_family: Fontin
+    type: with-parial-line
+    font_family: Raleway
     font_size: 1.4em
     bold: false
     small_caps: false
-    line_thickness: 0.15cm
-    vertical_space_above: 0.55cm
+    line_thickness: 0.5pt
+    vertical_space_above: 0.5cm
     vertical_space_below: 0.3cm
   entries:
     date_and_location_width: 4.15cm
-    left_and_right_margin: 0cm
-    horizontal_space_between_columns: 0.4cm
-    vertical_space_between_entries: 0.4cm
+    left_and_right_margin: 0.2cm
+    horizontal_space_between_columns: 0.1cm
+    vertical_space_between_entries: 1.2em
     allow_page_break_in_sections: true
     allow_page_break_in_entries: true
     short_second_row: false
-    show_time_spans_in:
-      - Experience
+    show_time_spans_in: []
   highlights:
     bullet: •
     top_margin: 0.25cm
     left_margin: 0cm
-    vertical_space_between_highlights: 0.19cm
-    horizontal_space_between_bullet_and_highlight: 0.3em
+    vertical_space_between_highlights: 0.25cm
+    horizontal_space_between_bullet_and_highlight: 0.5em
     summary_left_margin: 0cm
   entry_types:
     one_line_entry:
       template: '**LABEL:** DETAILS'
     education_entry:
-      main_column_first_row_template: '**INSTITUTION**, DEGREE in AREA -- LOCATION'
-      degree_column_template:
+      main_column_first_row_template: '**INSTITUTION**, AREA -- LOCATION'
+      degree_column_template: '**DEGREE**'
       degree_column_width: 1cm
       main_column_second_row_template: |-
         SUMMARY
@@ -221,6 +220,6 @@ locale:
     - November
     - December
 rendercv_settings:
-  date: '2025-05-07'
+  date: '2025-05-10'
   render_command:
   bold_keywords: []
