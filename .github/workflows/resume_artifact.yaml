@@ -13,7 +13,7 @@ jobs:
       # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
-        continue-on-error: false  # Ensure that this step succeeds or the workflow fails
+        continue-on-error: false
 
       # Step 2: Set up Python environment
       - name: Set up Python
@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      # Step 3: Cache dependencies to speed up subsequent runs
+      # Step 3: Cache pip dependencies
       - name: Cache pip dependencies
         uses: actions/cache@v3
         with:
@@ -30,28 +30,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      # Step 4: Install rendercv and its dependencies
+      # Step 4: Install rendercv
       - name: Install rendercv
         run: pip install rendercv[full]
 
-      # Step 5: Render CV with better error handling
+      # Step 5: Render CV
       - name: Render CV
         run: |
           set -e  # Exit immediately if a command exits with a non-zero status
           rendercv render Bhavesh_Kakrotra_CV.yaml
-        continue-on-error: false  # Ensure rendering step is successful
+        continue-on-error: false
 
-      # Step 6: Upload CV as an artifact
+      # Step 6: Upload CV as an artifact (using v2 instead of v3)
       - name: Upload CV as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: Bhavesh_Kakrotra_CV
           path: rendercv_output/Bhavesh_Kakrotra.CV.pdf
-        continue-on-error: false  # Ensure artifact is uploaded successfully
+        continue-on-error: false
 
-      # Optional Step: Clean up any temporary files or caches (if needed)
+      # Optional Step: Clean up
       - name: Clean up
         run: |
           echo "Cleanup if necessary"
-        continue-on-error: true  # Ignore any errors during cleanup
-
+        continue-on-error: true
