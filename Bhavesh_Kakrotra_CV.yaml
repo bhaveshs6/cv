@@ -12,13 +12,22 @@ cv:
     - network: Mastodon
       username: "@bhaveshs6@mastodon.social"
   sections:
-    education:
-      - institution: G H Raisoni College of Engineering
-        area: Electronics and Telecommunication
-        degree: BE
-        location: Nagpur, India
-        start_date: 2018-08
-        end_date: 2022-07
+    summary:
+      - name: ""
+        summary: |
+          MLOps Engineer with expertise in deploying and managing machine learning workflows on cloud platforms like AWS and Databricks. Skilled in CI/CD pipeline creation, containerization, and orchestration using Kubernetes and Kubeflow. Proficient in integrating DevOps practices with machine learning to ensure scalable, reliable, and efficient model deployment. Experienced in building end-to-end solutions with FastAPI, ReactJS, and Evidently AI for monitoring and performance optimization.
+    certifications:
+      - title: Red Hat Certified Engineer
+        authors:
+          - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
+        date: 2022-08
+        url: 
+
+      - title: Red Hat Certified System Administrator
+        authors:
+          - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
+        date: 2022-08
+        url: 
 
     experience:
       - company: Sigmoid Analytics
@@ -66,18 +75,14 @@ cv:
       - label: Operating Systems
         details: Linux (Red Hat Enterprise Linux 8.2), Windows
 
-    certifications:
-      - title: Red Hat Certified Engineer
-        authors:
-          - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
-        date: 2022-08
-        url: https://www.credly.com/badges/0f2a3b8c-4d1e-4f5b-9a6c-7d0e2f3a1b8c/public_url
-
-      - title: Red Hat Certified System Administrator
-        authors:
-          - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
-        date: 2022-08
-        url: https://www.credly.com/badges/0f2a3b8c-4d1e-4f5b-9a6c-7d0e2f3a1b8c/public_url
+    education:
+      - institution: G H Raisoni College of Engineering
+        area: Electronics and Telecommunication
+        degree: BE
+        location: Nagpur, India
+        start_date: 2018-08
+        end_date: 2022-07
+        
 design:
   theme: moderncv
   page:
