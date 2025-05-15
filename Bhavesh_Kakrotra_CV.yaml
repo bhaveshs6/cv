@@ -12,18 +12,19 @@ cv:
     - network: Mastodon
       username: "@bhaveshs6@mastodon.social"
   sections:
-    summary:
-      - name: ""
+    'professional_summary':
+      - name: |
         summary: |
           MLOps Engineer with expertise in deploying and managing machine learning workflows on cloud platforms like AWS and Databricks. Skilled in CI/CD pipeline creation, containerization, and orchestration using Kubernetes and Kubeflow. Proficient in integrating DevOps practices with machine learning to ensure scalable, reliable, and efficient model deployment. Experienced in building end-to-end solutions with FastAPI, ReactJS, and Evidently AI for monitoring and performance optimization.
     certifications:
-      - title: Red Hat Certified Engineer
+      - title: RHCE
+        journal: null
         authors:
           - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
         date: 2022-08
         url: https://rhtapps.redhat.com/verify?certId=210100327
 
-      - title: Red Hat Certified System Administrator
+      - title: RHCSA
         authors:
           - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
         date: 2022-08
@@ -96,7 +97,7 @@ design:
   colors:
     text: rgb(0, 0, 0)
     name: rgb(0, 79, 144)
-    connections: rgb(0, 79, 144)
+    connections: rgb(0, 79, 130)
     section_titles: rgb(0, 79, 144)
     links: rgb(0, 79, 144)
     last_updated_date_and_page_numbering: rgb(128, 128, 128)
@@ -170,13 +171,12 @@ design:
         HIGHLIGHTS
       date_and_location_column_template: DATE
     publication_entry:
-      main_column_first_row_template: '**TITLE**'
+      main_column_first_row_template: '**TITLE**, **URL**'
       main_column_second_row_template: |-
         AUTHORS
         URL (JOURNAL)
       main_column_second_row_without_journal_template: |-
         AUTHORS
-        URL
       main_column_second_row_without_url_template: |-
         AUTHORS
         JOURNAL
