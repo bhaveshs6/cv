@@ -13,22 +13,24 @@ cv:
       username: "@bhaveshs6@mastodon.social"
   sections:
     'professional_summary':
+      # ```commenting for focus on other sections```
       - name: |
-        # summary: | ```commenting for focus on other sections```
-        #   MLOps Engineer with expertise in deploying and managing machine learning workflows on cloud platforms like AWS and Databricks. Skilled in CI/CD pipeline creation, containerization, and orchestration using Kubernetes and Kubeflow. Proficient in integrating DevOps practices with machine learning to ensure scalable, reliable, and efficient model deployment. Experienced in building end-to-end solutions with FastAPI, ReactJS, and Evidently AI for monitoring and performance optimization.
+        summary: |
+          MLOps Engineer with expertise in deploying and managing machine learning workflows on cloud platforms like AWS and Databricks. Skilled in CI/CD pipeline creation, containerization, and orchestration using Kubernetes and Kubeflow. Proficient in integrating DevOps practices with machine learning to ensure scalable, reliable, and efficient model deployment. Experienced in building end-to-end solutions with FastAPI, ReactJS, and Evidently AI for monitoring and performance optimization.
     certifications:
-      - title: RHCE
+      # ```commenting for focus on other sections```
+      - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
         # journal: null
         authors:
-          - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
+          - Automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting.
         date: 2022-08
-        url: https://rhtapps.redhat.com/verify?certId=210100327
+        # url: https://rhtapps.redhat.com/verify?certId=210100327
 
-      - title: RHCSA
+      - title: '[Red Hat® Certified System Administrator (RHCSA)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
+          - A Red Hat® Certified System Administrator (RHCSA) is proficient in using essential command-line tools, creating simple shell scripts, managing running systems and virtual machines, configuring local storage and file systems with appropriate permissions and security, deploying and maintaining software and core services, managing users and groups, implementing basic firewall and SELinux security, and performing basic container management.
         date: 2022-08
-        url: https://rhtapps.redhat.com/verify?certId=210100327
+        # url: https://rhtapps.redhat.com/verify?certId=210100327
 
     experience:
       - company: Sigmoid Analytics
@@ -39,14 +41,15 @@ cv:
         highlights:
           - Developed a comprehensive MLOps framework to streamline the deployment of ML projects on Databricks, including customizable templates for starter, time series, and classification models.
           - Designed and implemented a complete front-end and back-end solution for LLM (Large Language Model) and RAG (Retrieval-Augmented Generation) applications using FastAPI and ReactJS.
-          - Integrated OpenAI API for enabling natural language queries across databases, documents, and audio files.
-          - Implemented user authentication via MongoDB to ensure secure access.
+              ◦ Integrated Azure OpenAI API for enabling natural language queries across databases, documents, and audio files.
+              ◦ Implemented user authentication via MongoDB to ensure secure access.
           - Deployed ML workflows using Kubeflow hosted on EKS, integrating with Kubernetes for scalable deployment and management.
           - Established CI/CD pipelines for SageMaker projects to automate model training, validation, and deployment.
           - Built a custom data drift detection and model monitoring solution using the Evidently AI library.
           - Designed dynamic HTML reports and dashboards to track model performance and facilitate timely interventions.
           - Deployed and scheduled complex workflows in Databricks using a proprietary client framework.
           - Implemented CI/CD pipelines for seamless deployment and testing of ML models on Databricks, ensuring high-quality production-ready models.
+          - Used a client's own framework to deploy and schedule complex workflows in Databricks, enhancing operational efficiency.
 
       - company: Capgemini
         position: Senior Data Analyst Intern
@@ -74,17 +77,73 @@ cv:
         details: MySQL, MongoDB, PostgreSQL
       - label: Operating Systems
         details: Linux (Red Hat Enterprise Linux 8.2), Windows
+      - label: Languages
+        details: English (fluent, B2), Hindi (native)
 
     projects:
-      - name: '[Example Project](https://example.com)'
-        date:
-        start_date: 2024-05
-        end_date: present
-        location:
-        summary: A web application for writing essays
+      # - name: '[Example Project](https://example.com)'
+      #   date:
+      #   start_date: 2024-05
+      #   end_date: present
+      #   location:
+      #   summary: A web application for writing essays
+      #   highlights:
+      #     - Launched an [iOS app](https://example.com) in 09/2024 that currently has 10k+ monthly active users
+      #     - The app is made open-source (3,000+ stars [on GitHub](https://github.com))
+
+      - name: Multi-tier Web Application over GCP
+        start_date: 2023-01
+        end_date: 2023-03
+        summary: Deployed a multi-tier web application using Google Cloud Platform services.
         highlights:
-          - Launched an [iOS app](https://example.com) in 09/2024 that currently has 10k+ monthly active users
-          - The app is made open-source (3,000+ stars [on GitHub](https://github.com))
+          - Utilized VPC Peering, SQL Database, and Kubernetes Cluster Service for deployment.
+
+      - name: Ansible Provisioning Projects
+        start_date: 2023-04
+        end_date: 2023-06
+        summary: Automated infrastructure provisioning using Ansible and Terraform.
+        highlights:
+          - Launched Hadoop cluster across multiple machines.
+          - Deployed Kubernetes cluster on cloud using Ansible Roles and Terraform.
+          - Configured load balancer using Ansible.
+
+      - name: Integration of Computer Vision and NumPy
+        start_date: 2023-07
+        end_date: 2023-08
+        summary: Developed image processing applications combining Computer Vision and NumPy.
+        highlights:
+          - Created images using Computer Vision and NumPy.
+          - Swapped logos of different superheroes using NumPy and Computer Vision.
+
+      - name: AWS CLI for Hosting with CDN
+        start_date: 2023-09
+        end_date: 2023-10
+        summary: Hosted and delivered content using AWS CLI and Content Delivery Network.
+        highlights:
+          - Hosted content on S3 via AWS CDN for fast global delivery using AWS CLI.
+
+      - name: iOS App - Counter
+        start_date: 2023-11
+        end_date: 2023-12
+        summary: Developed a Flutter-based iOS app to count button presses.
+        highlights:
+          - Stored data persistently unless the user ends the session.
+
+      - name: Medical Assistant Integrated with the Cloud
+        start_date: 2024-01
+        end_date: 2024-02
+        summary: Created a web-based chatbot for medical assistance.
+        highlights:
+          - Hosted on Apache httpd using CGI programming in Python to create API.
+          - Deployed on AWS with features like diabetes detection, nearby hospitals, and bed availability.
+
+      - name: Lung Infection Detector App
+        start_date: 2024-03
+        end_date: 2024-04
+        summary: Developed a deep learning model to detect lung infections.
+        highlights:
+          - Integrated the model with Flutter for use on Android, iOS, and Web platforms.
+
 
     education:
       - institution: G H Raisoni College of Engineering
