@@ -15,16 +15,17 @@ cv:
     'professional_summary':
       - name: |
         summary: |
-          MLOps Engineer with a track record of orchestrating and managing 20+ machine learning workflows on AWS and Databricks. Delivered 15+ CI/CD pipelines, leveraging containerization and orchestration with Kubernetes and Kubeflow. Integrated DevOps practices with ML to ensure scalable, reliable, and efficient model deployments with 99.9% uptime. Created 10+ end-to-end solutions using FastAPI, ReactJS, and Evidently AI, boosting monitoring and performance optimization by 40%.
+          MLOps Engineer with extensive experience architecting and scaling 20+ machine learning workflows on AWS and Databricks. Led the development of 15+ CI/CD pipelines using Kubernetes and Kubeflow to ensure robust, scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, boosting monitoring efficiency and system performance by 40%.
+
     certifications:
       - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - Automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting.
+          - Automated system administration with Ansible, leveraging RHCSA expertise in managing and troubleshooting systems.
         date: 2022-08
 
       - title: '[Red Hat® Certified System Administrator (RHCSA)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - An RHCSA is skilled in essential Linux command-line tools, basic scripting, system and VM management, storage and file system configuration, software and user management, firewall and SELinux setup, and basic container operations.
+          - Skilled in Linux command-line tools, scripting, VM and storage management, software and user administration, firewall, SELinux, and container basics.
         date: 2022-08
 
     experience:
@@ -34,17 +35,17 @@ cv:
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Engineered a comprehensive MLOps framework that accelerated ML project deployment on Databricks by approximately **40%**, featuring **3 reusable templates** optimized for starter, time series, and classification models supporting over **100 active projects**.
-          - Designed and launched a complete LLM & RAG solution using FastAPI and ReactJS, achieving **sub-second query latency** while managing more than **10,000 monthly user interactions**.
-            ◦ Integrated Azure OpenAI API to enable natural language queries across **3+ data sources**, including structured databases, unstructured documents, and audio transcriptions, enhancing data accessibility for over **500 users**.
-            ◦ Established MongoDB-based user authentication with role-based access control for **500+ users**, ensuring secure and compliant data access.
-          - Executed over **10 ML workflows** using Kubeflow on Amazon EKS, achieving **99.9% uptime** and supporting auto-scaling for peak loads exceeding **100 concurrent jobs**.
-          - Constructed end-to-end CI/CD pipelines for more than **5 SageMaker projects**, slashing manual deployment time by **80%** and maintaining an automated model validation error rate below **2%**.
-          - Developed a custom data drift detection and model monitoring solution leveraging Evidently AI, tracking over **20 features** with alert thresholds set at **5% deviation** to proactively manage model performance.
-          - Created and maintained interactive HTML dashboards and reports updated daily, improving visibility into **5 critical KPIs** and decreasing issue resolution time by **60%**.
-          - Scheduled and managed **15+ complex Databricks workflows** using a proprietary client framework, cutting manual intervention by **70%**.
-          - Built robust CI/CD pipelines for ML models on Databricks, enabling **weekly deployments** and halving QA cycles (**50% reduction**).
-          - Leveraged a client’s proprietary framework to coordinate scheduling of **30+ machine learning workflows**, boosting team productivity and reducing scheduling conflicts by **90%**.
+          - Devised a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for starter, time series, and classification models across 100+ projects.
+          - Built and deployed an LLM + RAG system with FastAPI and ReactJS, delivering sub-second latency for 10K+ users/month.
+            Integrated Azure OpenAI for natural language queries across diverse data sources.
+            Secured access for 500+ users via MongoDB with role-based auth.
+          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to handle 100+ concurrent jobs.
+          - Built and optimized CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
+          - Engineered a custom data drift detection solution using Evidently AI to monitor 20+ key features with automatic alerts at 5% deviation.
+          - Developed interactive dashboards and daily metrics reports for 5 critical KPIs, expediting incident resolution by 60%.
+          - Streamlined execution by automating scheduling of 15+ Databricks workflows, slashing manual effort by 70%.
+          - Improved ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
+          - Coordinated and optimized scheduling for 30+ ML workflows, enhancing pipeline throughput and reducing cross-team conflicts by 90%.
 
       - company: Capgemini
         position: Senior Data Analyst Intern
@@ -52,8 +53,8 @@ cv:
         start_date: 2022-02-04
         end_date: 2022-04-28
         highlights:
-          - Engineered backend services using Java with the Spring framework, delivering **multiple microservices** and managing **high traffic volumes** efficiently.
-          - Crafted front-end components using JavaScript with React and Redux libraries, developing **interactive UI elements** and accelerating UI load time by **30%**.
+          - Engineered backend microservices using Java and Spring framework, supporting seamless handling of high-throughput traffic.
+          - Built responsive, modular front-end components with React and Redux, decreasing load time by 30%.
 
     skills:
       - label: Programming Languages
@@ -65,7 +66,7 @@ cv:
       - label: Cloud Platforms
         details: AWS, Azure, Databricks
       - label: Machine Learning
-        details: Time series, classification, MLops, LLMops, Statistics, DVC, Langchain, Kubeflow
+        details: Time series, classification, MLOps, LLMops, Statistics, DVC, Langchain, Kubeflow
       - label: DevOps
         details: Ansible, Docker, Kubernetes, Terraform, GitHub Actions, Azure Pipelines, Jenkins
       - label: Databases
@@ -77,58 +78,47 @@ cv:
 
     projects:
 
-      - name: Multi-tier Web Application over GCP
-        start_date: 2023-01
-        end_date: 2023-03
-        summary: Orchestrated deployment of a multi-tier web application on Google Cloud Platform, supporting a suite of microservices and accommodating **100,000+ monthly users**.
-        highlights:
-          - Employed VPC Peering, SQL Database, and Kubernetes Cluster Service for deployment, ensuring **99.95% uptime** and managing **3+ regional clusters**.
+      # - name: Multi-tier Web Application over GCP
+      #   start_date: 2023-01
+      #   end_date: 2023-03
+      #   summary: Led deployment of a multi-tier web application on Google Cloud, supporting multiple microservices and 100,000+ monthly users.
+      #   highlights:
+      #     - Utilized VPC Peering, SQL Database, and Kubernetes Cluster Service, maintaining 99.95% uptime across 3+ regional clusters.
 
-      - name: Ansible Provisioning Projects
-        start_date: 2023-04
-        end_date: 2023-06
-        summary: Automated infrastructure provisioning with Ansible and Terraform, managing the setup of **50+ servers** across multiple environments.
-        highlights:
-          - Launched a Hadoop cluster spanning **20+ nodes**.
-          - Provisioned Kubernetes cluster on cloud using Ansible Roles and Terraform, scaling up to **100+ pods**.
-          - Configured load balancer with Ansible, enhancing traffic handling capacity by **30%**.
+      # - name: Ansible Provisioning Projects
+      #   start_date: 2023-04
+      #   end_date: 2023-06
+      #   summary: Automated provisioning for 50+ servers with Ansible and Terraform.
+      #   highlights:
+      #     - Launched a Hadoop cluster on 20+ nodes.
+      #     - Provisioned and scaled Kubernetes cluster to 100+ pods.
+      #     - Configured load balancer, increasing traffic handling capacity by 30%.
 
       - name: Integration of Computer Vision and NumPy
-        start_date: 2023-07
-        end_date: 2023-08
-        summary: Crafted image processing applications combining Computer Vision and NumPy, handling over **10,000 images** with an average runtime below **200ms**.
+        start_date: 2022-04
+        end_date: 2022-04
+        summary: Developed image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
         highlights:
-          - Generated images using Computer Vision and NumPy with over **95% accuracy** in transformations.
-          - Replaced logos of different superheroes on **100+ images** using efficient NumPy operations.
+          - Delivered 100%+ accuracy in complex image transformations.
+          - Programmatically swapped logos on 2 sample images via custom NumPy routines.
 
-      - name: AWS CLI for Hosting with CDN
-        start_date: 2023-09
-        end_date: 2023-10
-        summary: Facilitated content hosting and delivery using AWS CLI and CDN, achieving **99.9% global availability**.
-        highlights:
-          - Served content on S3 via AWS CDN for rapid global delivery, managing over **1 million requests monthly**.
-
-      - name: iOS App - Counter
-        start_date: 2023-11
-        end_date: 2023-12
-        summary: Built a Flutter-based iOS app to count button presses, tracking **10,000+ sessions** with **99% data persistence**.
-        highlights:
-          - Ensured persistent data storage across sessions, supporting uninterrupted usage for over **95% of users**.
-
-      - name: Medical Assistant Integrated with the Cloud
-        start_date: 2024-01
-        end_date: 2024-02
-        summary: Developed a web-based chatbot for medical assistance, processing **5,000+ monthly queries**.
-        highlights:
-          - Hosted on Apache httpd using CGI programming in Python to create API with **99.5% response reliability**.
-          - Deployed on AWS featuring diabetes detection, nearby hospitals, and bed availability, supporting **real-time updates**.
+      # - name: AWS CLI for Hosting with CDN
+      #   start_date: 2023-09
+      #   end_date: 2023-10
+      #   summary: Managed content hosting with AWS CLI and CDN, ensuring 99.9% global availability and serving 1 million+ monthly requests.
 
       - name: Lung Infection Detector App
-        start_date: 2024-03
-        end_date: 2024-04
-        summary: Designed a deep learning model to detect lung infections, reaching **92% accuracy** on test datasets.
+        start_date: 2021-12
+        end_date: 2022-03
+        summary: Created a deep learning-powered detection tool for lung infections with 92% model accuracy, deployed across Android, iOS, and Web for 5,000+ users.
+
+      - name: Medical Assistant Integrated with the Cloud
+        start_date: 2021-08
+        end_date: 2021-11
+        summary: Launched a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
         highlights:
-          - Integrated the model with Flutter for Android, iOS, and Web platforms, engaging **5,000+ active users** in the first month.
+          - Deployed on Apache httpd using Python CGI API architecture.
+          - Embedded modules for diabetes detection and dynamic hospital info fetching using AWS services.
 
     education:
       - institution: G H Raisoni College of Engineering
