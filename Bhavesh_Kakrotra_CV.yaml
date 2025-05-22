@@ -12,10 +12,10 @@ cv:
     - network: Mastodon
       username: "@bhaveshs6@mastodon.social"
   sections:
-    'professional_summary':
-      - name: |
+    summary:
+      - name: ''
         summary: |
-          MLOps Engineer with extensive experience architecting and scaling 20+ machine learning workflows on AWS and Databricks. Led the development of 15+ CI/CD pipelines using Kubernetes and Kubeflow to ensure robust, scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, boosting monitoring efficiency and system performance by 40%.
+          MLOps Engineer who architected and scaled 20+ machine learning workflows on AWS and Databricks. Built 15+ CI/CD pipelines using Kubernetes and Kubeflow for scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, increasing monitoring efficiency and system performance by 40%.
 
     certifications:
       - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
@@ -35,16 +35,13 @@ cv:
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Devised a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for starter, time series, and classification models across 100+ projects.
-          - Built and deployed an LLM + RAG system with FastAPI and ReactJS, delivering sub-second latency for 10K+ users/month.
-            Integrated Azure OpenAI for natural language queries across diverse data sources.
-            Secured access for 500+ users via MongoDB with role-based auth.
+          - Devised a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
+          - Designed and deployed an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication
           - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to handle 100+ concurrent jobs.
-          - Built and optimized CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
+          - Designed and fine-tuned CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
           - Engineered a custom data drift detection solution using Evidently AI to monitor 20+ key features with automatic alerts at 5% deviation.
-          - Developed interactive dashboards and daily metrics reports for 5 critical KPIs, expediting incident resolution by 60%.
           - Streamlined execution by automating scheduling of 15+ Databricks workflows, slashing manual effort by 70%.
-          - Improved ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
+          - Enhanced ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
           - Coordinated and optimized scheduling for 30+ ML workflows, enhancing pipeline throughput and reducing cross-team conflicts by 90%.
 
       - company: Capgemini
@@ -54,7 +51,7 @@ cv:
         end_date: 2022-04-28
         highlights:
           - Engineered backend microservices using Java and Spring framework, supporting seamless handling of high-throughput traffic.
-          - Built responsive, modular front-end components with React and Redux, decreasing load time by 30%.
+          - Assembled responsive, modular front-end components with React and Redux, decreasing load time by 30%.
 
     skills:
       - label: Programming Languages
@@ -99,7 +96,7 @@ cv:
         end_date: 2022-04
         summary: Developed image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
         highlights:
-          - Delivered 100%+ accuracy in complex image transformations.
+          - Achieved 100%+ accuracy in complex image transformations.
           - Programmatically swapped logos on 2 sample images via custom NumPy routines.
 
       # - name: AWS CLI for Hosting with CDN
@@ -110,15 +107,15 @@ cv:
       - name: Lung Infection Detector App
         start_date: 2021-12
         end_date: 2022-03
-        summary: Created a deep learning-powered detection tool for lung infections with 92% model accuracy, deployed across Android, iOS, and Web for 5,000+ users.
+        summary: Created a deep learning-powered detection tool for lung infections with 92% model accuracy, launched across Android, iOS, and Web for 5,000+ users.
 
       - name: Medical Assistant Integrated with the Cloud
         start_date: 2021-08
         end_date: 2021-11
-        summary: Launched a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
+        summary: Rolled out a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
         highlights:
-          - Deployed on Apache httpd using Python CGI API architecture.
-          - Embedded modules for diabetes detection and dynamic hospital info fetching using AWS services.
+          - Hosted on Apache httpd using Python CGI API architecture.
+          - Embedded modules for diabetes detection and hospital info retrieval using AWS services.
 
     education:
       - institution: G H Raisoni College of Engineering
@@ -229,7 +226,7 @@ locale:
   language: en
   phone_number_format: national
   page_numbering_template: NAME - Page PAGE_NUMBER of TOTAL_PAGES
-  last_updated_date_template: Last updated in TODAY
+  last_updated_date_template: ''
   date_template: MONTH_ABBREVIATION YEAR
   month: month
   months: months
