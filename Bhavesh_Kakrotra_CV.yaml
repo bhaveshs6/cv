@@ -15,7 +15,7 @@ cv:
     summary:
       - name: ''
         summary: |
-          MLOps Engineer who architected and scaled 20+ machine learning workflows on AWS and Databricks. Built 15+ CI/CD pipelines using Kubernetes and Kubeflow for scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, increasing monitoring efficiency and system performance by 40%.
+          MLOps Engineer who architected and scaled 20+ machine learning workflows on AWS and Databricks. Implemented 15+ CI/CD pipelines using Kubernetes and Kubeflow for scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, increasing monitoring efficiency and system performance by 40%.
 
     certifications:
       - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
@@ -25,7 +25,7 @@ cv:
 
       - title: '[Red Hat® Certified System Administrator (RHCSA)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - Skilled in Linux command-line tools, scripting, VM and storage management, software and user administration, firewall, SELinux, and container basics.
+          - Proficient in Linux command-line tools, scripting, VM and storage management, software and user administration, firewall, SELinux, and container basics.
         date: 2022-08
 
     experience:
@@ -35,14 +35,14 @@ cv:
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Devised a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
-          - Designed and deployed an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication
-          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to handle 100+ concurrent jobs.
-          - Designed and fine-tuned CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
-          - Engineered a custom data drift detection solution using Evidently AI to monitor 20+ key features with automatic alerts at 5% deviation.
-          - Streamlined execution by automating scheduling of 15+ Databricks workflows, slashing manual effort by 70%.
-          - Enhanced ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
-          - Coordinated and optimized scheduling for 30+ ML workflows, enhancing pipeline throughput and reducing cross-team conflicts by 90%.
+          - Architected a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
+          - Developed and deployed an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication
+          - Managed 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to handle 100+ concurrent jobs.
+          - Implemented and optimized CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
+          - Built a custom data drift detection solution using Evidently AI to monitor 20+ key features with automatic alerts at 5% deviation.
+          - Automated scheduling of 15+ Databricks workflows, reducing manual effort by 70%.
+          - Accelerated ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
+          - Optimized scheduling for 30+ ML workflows, increasing pipeline throughput and reducing cross-team conflicts by 90%.
 
       - company: Capgemini
         position: Senior Data Analyst Intern
@@ -50,8 +50,8 @@ cv:
         start_date: 2022-02-04
         end_date: 2022-04-28
         highlights:
-          - Engineered backend microservices using Java and Spring framework, supporting seamless handling of high-throughput traffic.
-          - Assembled responsive, modular front-end components with React and Redux, decreasing load time by 30%.
+          - Created backend microservices using Java and Spring framework, supporting seamless handling of high-throughput traffic.
+          - Constructed responsive, modular front-end components with React and Redux, decreasing load time by 30%.
 
     skills:
       - label: Programming Languages
@@ -94,9 +94,9 @@ cv:
       - name: Integration of Computer Vision and NumPy
         start_date: 2022-04
         end_date: 2022-04
-        summary: Developed image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
+        summary: Built image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
         highlights:
-          - Achieved 100%+ accuracy in complex image transformations.
+          - Achieved 100% accuracy in complex image transformations.
           - Programmatically swapped logos on 2 sample images via custom NumPy routines.
 
       # - name: AWS CLI for Hosting with CDN
@@ -107,15 +107,15 @@ cv:
       - name: Lung Infection Detector App
         start_date: 2021-12
         end_date: 2022-03
-        summary: Created a deep learning-powered detection tool for lung infections with 92% model accuracy, launched across Android, iOS, and Web for 5,000+ users.
+        summary: Launched a deep learning-powered detection tool for lung infections with 92% model accuracy, deployed across Android, iOS, and Web for 5,000+ users.
 
       - name: Medical Assistant Integrated with the Cloud
         start_date: 2021-08
         end_date: 2021-11
-        summary: Rolled out a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
+        summary: Deployed a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
         highlights:
           - Hosted on Apache httpd using Python CGI API architecture.
-          - Embedded modules for diabetes detection and hospital info retrieval using AWS services.
+          - Integrated modules for diabetes detection and hospital info retrieval using AWS services.
 
     education:
       - institution: G H Raisoni College of Engineering
