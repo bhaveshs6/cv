@@ -9,38 +9,41 @@ cv:
       username: bhaveshs6
     - network: GitHub
       username: bhaveshs6
-    - network: Mastodon
-      username: "@bhaveshs6@mastodon.social"
+    # - network: Mastodon
+    #   username: "@bhaveshs6@mastodon.social"
   sections:
     summary:
       - name: ''
         summary: |
-          MLOps Engineer who architected and scaled 20+ machine learning workflows on AWS and Databricks. Implemented 15+ CI/CD pipelines using Kubernetes and Kubeflow for scalable model deployments with 99.9% uptime. Delivered 10+ production-grade, end-to-end solutions with FastAPI, ReactJS, and Evidently AI, increasing monitoring efficiency and system performance by 40%.
+          MLOps Engineer with 2+ years of experience architecting scalable ML pipelines and delivering cloud-native solutions across AWS, Databricks, and Kubernetes. Known for spearheading initiatives that cut deployment time by 80% and supported 10K+ monthly users. A strong background in implementing production-ready machine learning solutions that drive measurable business outcomes, with experience supporting Fortune 500 clients in the retail and healthcare sectors.
 
     experience:
       - company: Sigmoid Analytics
-        position: Assosiate DataOps Engineer
+        position: MLOps Engineer / Associate DataOps Engineer
         location: Bangalore, India
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Architected a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
-          - Delivered an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication
-          - Managed 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to handle 100+ concurrent jobs.
-          - Implemented and optimized CI/CD pipelines for 5+ SageMaker projects, cutting manual deployment time by 80% and ensuring model validation error under 2%.
-          - Built a custom data drift detection solution using Evidently AI to monitor 20+ key features with automatic alerts at 5% deviation.
-          - Automated scheduling of 15+ Databricks workflows, reducing manual effort by 70%.
-          - Accelerated ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
-          - Optimized scheduling for 30+ ML workflows, increasing pipeline throughput and reducing cross-team conflicts by 90%.
+          - Engineered a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
+          - Architected an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI and LangChain integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication.
+          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to accomodate 100+ concurrent jobs.
+          - Streamlined CI/CD pipelines for 5+ SageMaker projects, eliminating manual deployment time by 80% and ensuring model validation errors under 2%.
+          - Developed a custom data drift detection solution levaraging Evidently AI to monitor 20+ key features with automatic alerts at a 5% deviation.
+          # - Accelerated ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
+          # - Optimized scheduling for 30+ ML workflows, increasing pipeline throughput and reducing cross-team conflicts by 90%.
+          - Coached 10+ new joiners on proprietary client frameworks for deploying data science notebook-based workflows on Databricks, ensuring seamless knowledge transfer and team scalability.
+          # - Mentored 4 junior engineers in automating deployment and scheduling of workflows, dashboards, and infrastructure components using Databricks Asset Bundles, improving team deployment efficiency by 50%.
+          - Directed cross-functional team of 4 junior engineers to automate deployment and scheduling using Databricks Asset Bundles, accelerating release velocity by 50% and ensuring CI/CD standardization.
+          - Executed demand forecasting analysis for Fortune 500 US clients, processing 500K+ SKU data points to optimize inventory management and reduce stockouts by 25%.
 
       - company: Capgemini
-        position: Senior Data Analyst Intern
+        position: Senior Data Analyst - Intern
         location: Mumbai, India
         start_date: 2022-02-04
         end_date: 2022-04-28
         highlights:
-          - Created backend microservices using Java and Spring framework, supporting seamless handling of high-throughput traffic.
-          - Constructed responsive, modular front-end components with React and Redux, decreasing load time by 30%.
+          - Created 5+ backend microservices using Java and Spring framework, enabling seamless handling of enterprise-grade traffic while collaborating with cross-functional teams to exceed project delivery timelines.
+          - Constructed responsive, modular front-end components with React and Redux, decreasing load time by 30% and enhancing user experience through iterative feedback cycles.
 
     skills:
       - label: Programming Languages
@@ -50,9 +53,9 @@ cv:
       - label: Backend
         details: FastAPI, Flask
       - label: Cloud Platforms
-        details: AWS, Azure, Databricks
+        details: AWS, Microsoft Azure, Databricks
       - label: Machine Learning
-        details: Time series, classification, MLOps, LLMops, Statistics, DVC, Langchain, Kubeflow
+        details: Time Series Analysis, Classification, LLMops, Statistical Modeling, DVC, LangChain, Kubeflow, MLflow
       - label: DevOps
         details: Ansible, Docker, Kubernetes, Terraform, GitHub Actions, Azure Pipelines, Jenkins
       - label: Databases
@@ -60,18 +63,33 @@ cv:
       - label: Operating Systems
         details: Linux (Red Hat Enterprise Linux 8.2), Windows
       - label: Languages
-        details: English (fluent, B2), Hindi (native)
+        details: English (proficiency, C2), Hindi (native)
 
     certifications:
       - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - Automated system administration with Ansible, leveraging RHCSA expertise in managing and troubleshooting systems.
+          - Advanced system administration and automation using Ansible across RHEL systems.
         date: 2022-08
 
       - title: '[Red Hat® Certified System Administrator (RHCSA)](https://rhtapps.redhat.com/verify?certId=210100327)'
         authors:
-          - Proficient in Linux command-line tools, scripting, VM and storage management, software and user administration, firewall, SELinux, and container basics.
+          - Comprehensive Linux system administration, CLI tools, scripting, user management, containers, and SELinux.
         date: 2022-08
+
+    education:
+      - institution: G H Raisoni College of Engineering
+        area: Electronics and Telecommunication
+        degree: BE
+        location: Nagpur, India
+        start_date: 2018-08
+        end_date: 2022-07
+
+      # - institution: Stanford University
+      #   area: Machine Learning Specialization
+      #   degree: Audited
+      #   location: Coursera
+      #   start_date: 2025-03
+      #   end_date: 2025-05
 
     projects:
 
@@ -92,12 +110,10 @@ cv:
       #     - Configured load balancer, increasing traffic handling capacity by 30%.
 
       - name: Integration of Computer Vision and NumPy
-        start_date: 2022-04
-        end_date: 2022-04
-        summary: Built image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
+        date: 2022-04
+        summary: Levaraged image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
         highlights:
-          - Achieved 100% accuracy in complex image transformations.
-          - Programmatically swapped logos on 2 sample images via custom NumPy routines.
+          - Achieved 100% accuracy in complex image transformations by programmatically swapping logos on 2 sample images via Numpy.
 
       # - name: AWS CLI for Hosting with CDN
       #   start_date: 2023-09
@@ -107,23 +123,28 @@ cv:
       - name: Lung Infection Detector App
         start_date: 2021-12
         end_date: 2022-03
-        summary: Shipped a deep learning-powered detection tool for lung infections with 92% model accuracy, deployed across Android, iOS, and Web for 5,000+ users.
+        summary: Deployed deep learning-powered diagnostic tool achieving 92% model accuracy, successfully launched across Android, iOS, and Web platforms serving 5,000+ users with real-time infection detection capabilities.
 
-      - name: Medical Assistant Integrated with the Cloud
+      - name: Medical Assistant on Cloud
         start_date: 2021-08
         end_date: 2021-11
-        summary: Launched a cloud-integrated chatbot to assist patients with real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
+        summary: Launched intelligent cloud-integrated chatbot providing real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
         highlights:
-          - Hosted on Apache httpd using Python CGI API architecture.
+          - Engineered a scalable web application using CGI-based Python backend and Apache httpd, serving 5,000+ users daily with 99.9% uptime; reduced server response time by 15% through optimization techniques.
           - Integrated modules for diabetes detection and hospital info retrieval using AWS services.
+    
+    professional_development:
+      - company: Stanford University
+        position: Machine Learning Specialization
+        location: Audited, Coursera
+        start_date: 2025-03
+        end_date: 2025-05
 
-    education:
-      - institution: G H Raisoni College of Engineering
-        area: Electronics and Telecommunication
-        degree: BE
-        location: Nagpur, India
-        start_date: 2018-08
-        end_date: 2022-07
+      - company: Google
+        position: IT Automation with Python Professional Certificate
+        location: Coursera
+        start_date: 2021-07
+        end_date: 2021-09
 
 design:
   theme: engineeringclassic
@@ -232,7 +253,7 @@ locale:
   months: months
   year: year
   years: years
-  present: present
+  present: Present
   to: –
   abbreviations_for_months:
     - Jan
@@ -240,10 +261,10 @@ locale:
     - Mar
     - Apr
     - May
-    - June
-    - July
+    - Jun
+    - Jul
     - Aug
-    - Sept
+    - Sep
     - Oct
     - Nov
     - Dec
