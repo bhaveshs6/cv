@@ -1,0 +1,497 @@
+name: CV Analysis and Render
+
+on:
+  push:
+    branches:
+      - main
+      - mlops
+  pull_request:
+    branches:
+      - main
+      - mlops
+
+jobs:
+  cv-analysis:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: read
+        issues: write
+        pull-requests: write
+    
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        continue-on-error: false
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # Step 3: Cache pip dependencies
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-cv-analysis-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-cv-analysis-
+            ${{ runner.os }}-pip-
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install rendercv[full]
+          pip install pyyaml
+          pip install pyspellchecker
+          pip install textstat
+          pip install nltk
+          pip install python-dateutil
+          pip install requests
+          python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"
+
+      # Step 5: Create CV analysis script
+      - name: Create CV analysis script
+        run: |
+          cat > cv_analyzer.py << 'EOF'
+          #!/usr/bin/env python3
+          import yaml
+          import re
+          import sys
+          from datetime import datetime
+          from dateutil.parser import parse
+          try:
+              from spellchecker import SpellChecker
+              SPELLCHECK_AVAILABLE = True
+          except ImportError:
+              SPELLCHECK_AVAILABLE = False
+              print("⚠️ Spellchecker not available - skipping spell check")
+          import nltk
+          from nltk.corpus import stopwords
+          from nltk.tokenize import word_tokenize, sent_tokenize
+          from collections import Counter, defaultdict
+          import textstat
+
+          class CVAnalyzer:
+              def __init__(self, yaml_file):
+                  with open(yaml_file, 'r', encoding='utf-8') as f:
+                      self.data = yaml.safe_load(f)
+                  self.cv_data = self.data.get('cv', {})
+                  self.issues = []
+                  self.warnings = []
+                  self.suggestions = []
+                  
+                  # ATS-unfriendly buzzwords and clichés
+                  self.buzzwords = {
+                      'proven track record', 'results-oriented', 'detail-oriented', 
+                      'team player', 'hard worker', 'go-getter', 'innovative', 
+                      'passionate', 'dynamic', 'motivated', 'experienced professional',
+                      'excellent communication skills', 'problem solver', 'self-starter',
+                      'think outside the box', 'hit the ground running', 'wear many hats',
+                      'best of breed', 'low-hanging fruit', 'synergy', 'paradigm shift',
+                      'game changer', 'thought leader', 'guru', 'ninja', 'rockstar'
+                  }
+                  
+                  # Weak action verbs
+                  self.weak_verbs = {
+                      'helped', 'assisted', 'worked on', 'was responsible for',
+                      'participated in', 'involved in', 'contributed to', 'handled',
+                      'dealt with', 'managed', 'oversaw', 'coordinated', 'supported'
+                  }
+                  
+                  # Strong action verbs
+                  self.strong_verbs = {
+                      'achieved', 'accelerated', 'accomplished', 'advanced', 'amplified',
+                      'architected', 'automated', 'built', 'constructed', 'created',
+                      'delivered', 'designed', 'developed', 'engineered', 'established',
+                      'executed', 'generated', 'implemented', 'improved', 'increased',
+                      'launched', 'led', 'optimized', 'orchestrated', 'produced',
+                      'reduced', 'resolved', 'spearheaded', 'streamlined', 'transformed'
+                  }
+                  
+                  # Filler words
+                  self.filler_words = {
+                      'very', 'really', 'quite', 'rather', 'somewhat', 'fairly',
+                      'pretty', 'just', 'simply', 'basically', 'essentially',
+                      'actually', 'literally', 'totally', 'completely', 'absolutely'
+                  }
+
+              def extract_text_content(self):
+                  """Extract all text content for analysis"""
+                  text_parts = []
+                  
+                  # Summary
+                  sections = self.cv_data.get('sections', {})
+                  if 'summary' in sections:
+                      for item in sections['summary']:
+                          if 'summary' in item:
+                              text_parts.append(item['summary'])
+                  
+                  # Experience highlights
+                  if 'experience' in sections:
+                      for exp in sections['experience']:
+                          if 'highlights' in exp:
+                              text_parts.extend(exp['highlights'])
+                  
+                  # Project highlights
+                  if 'projects' in sections:
+                      for proj in sections['projects']:
+                          if 'summary' in proj:
+                              text_parts.append(proj['summary'])
+                          if 'highlights' in proj:
+                              text_parts.extend(proj['highlights'])
+                  
+                  return ' '.join(text_parts)
+
+              def check_spelling_and_grammar(self):
+                  """Check for spelling errors"""
+                  print("🔤 Checking spelling...")
+                  if not SPELLCHECK_AVAILABLE:
+                      print("⚠️ Spellchecker not available - please manually verify spelling")
+                      return
+                      
+                  try:
+                      spell = SpellChecker()
+                      text = self.extract_text_content()
+                      
+                      # Remove markdown formatting and special characters
+                      clean_text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Remove bold
+                      clean_text = re.sub(r'[^\w\s]', ' ', clean_text)  # Keep only words and spaces
+                      
+                      words = clean_text.lower().split()
+                      misspelled = spell.unknown(words)
+                      
+                      # Filter out technical terms, numbers, and common abbreviations
+                      technical_terms = {
+                          'mlops', 'devops', 'aws', 'databricks', 'kubernetes', 'sagemaker',
+                          'fastapi', 'reactjs', 'mongodb', 'postgresql', 'ansible', 'terraform',
+                          'langchain', 'kubeflow', 'mlflow', 'cicd', 'llm', 'rag', 'api',
+                          'frontend', 'backend', 'microservices', 'yml', 'yaml', 'json',
+                          'bhavesh', 'kakrotra', 'sigmoid', 'capgemini', 'raisoni', 'nagpur',
+                          'bangalore', 'mumbai', 'rhce', 'rhcsa', 'sklearn', 'numpy', 'scipy',
+                          'dataops', 'eks', 'sqs', 'sns', 'ec2', 's3', 'rds', 'vpc', 'iam',
+                          'gitlab', 'github', 'jenkins', 'docker', 'podman', 'helm', 'istio'
+                      }
+                      
+                      real_misspelled = [word for word in misspelled 
+                                       if word not in technical_terms and not word.isdigit() and len(word) > 2]
+                      
+                      if real_misspelled:
+                          self.issues.append(f"Potential spelling errors: {', '.join(real_misspelled[:10])}")
+                      else:
+                          print("✅ No spelling errors found")
+                  except Exception as e:
+                      print(f"⚠️ Spell check failed: {e}")
+                      self.warnings.append("Spell check could not be completed - please manually verify spelling")
+
+              def check_buzzwords_and_cliches(self):
+                  """Check for buzzwords and clichés"""
+                  print("🚫 Checking for buzzwords and clichés...")
+                  text = self.extract_text_content().lower()
+                  found_buzzwords = [bw for bw in self.buzzwords if bw in text]
+                  
+                  if found_buzzwords:
+                      self.warnings.append(f"Buzzwords/clichés found: {', '.join(found_buzzwords)}")
+                  else:
+                      print("✅ No common buzzwords found")
+
+              def check_action_verbs(self):
+                  """Check for weak vs strong action verbs"""
+                  print("💪 Checking action verbs...")
+                  text = self.extract_text_content().lower()
+                  
+                  found_weak = [verb for verb in self.weak_verbs if verb in text]
+                  found_strong = [verb for verb in self.strong_verbs if verb in text]
+                  
+                  if found_weak:
+                      self.warnings.append(f"Weak action verbs found: {', '.join(found_weak)}")
+                      self.suggestions.append("Consider replacing weak verbs with stronger alternatives")
+                  
+                  strong_ratio = len(found_strong) / max(len(found_weak) + len(found_strong), 1)
+                  if strong_ratio > 0.7:
+                      print(f"✅ Good use of strong action verbs ({strong_ratio:.1%})")
+                  else:
+                      self.warnings.append(f"Low ratio of strong action verbs ({strong_ratio:.1%})")
+
+              def check_filler_words(self):
+                  """Check for filler words"""
+                  print("🗑️ Checking for filler words...")
+                  text = self.extract_text_content().lower()
+                  found_fillers = [filler for filler in self.filler_words if filler in text]
+                  
+                  if found_fillers:
+                      self.warnings.append(f"Filler words found: {', '.join(found_fillers)}")
+                  else:
+                      print("✅ No filler words found")
+
+              def check_quantification(self):
+                  """Check for quantification in achievements"""
+                  print("📊 Checking quantification...")
+                  text = self.extract_text_content()
+                  
+                  # Look for numbers, percentages, and quantifiers
+                  numbers = len(re.findall(r'\d+[%+]?', text))
+                  quantifiers = len(re.findall(r'\b(\d+[kK]?\+?|multiple|several|numerous)\b', text))
+                  
+                  if numbers < 10:
+                      self.warnings.append(f"Low quantification: only {numbers} numbers found")
+                      self.suggestions.append("Add more specific metrics and numbers to achievements")
+                  else:
+                      print(f"✅ Good quantification: {numbers} numbers found")
+
+              def check_date_consistency(self):
+                  """Check chronological order of dates"""
+                  print("📅 Checking date consistency...")
+                  sections = self.cv_data.get('sections', {})
+                  
+                  for section_name in ['experience', 'projects', 'education']:
+                      if section_name in sections:
+                          dates = []
+                          for item in sections[section_name]:
+                              start_date = item.get('start_date')
+                              end_date = item.get('end_date', item.get('date'))
+                              
+                              if start_date:
+                                  try:
+                                      if isinstance(start_date, str):
+                                          dates.append(parse(start_date))
+                                      else:
+                                          dates.append(start_date)
+                                  except:
+                                      pass
+                          
+                          # Check if dates are in reverse chronological order
+                          if len(dates) > 1:
+                              sorted_dates = sorted(dates, reverse=True)
+                              if dates != sorted_dates:
+                                  self.warnings.append(f"{section_name.title()} section not in reverse chronological order")
+
+              def check_repetition(self):
+                  """Check for repeated phrases and words"""
+                  print("🔄 Checking for repetition...")
+                  text = self.extract_text_content().lower()
+                  
+                  try:
+                      # Remove common words and split into phrases
+                      stop_words = set(stopwords.words('english'))
+                      words = [w for w in word_tokenize(text) if w.isalpha() and w not in stop_words]
+                      
+                      # Check word frequency
+                      word_freq = Counter(words)
+                      common_words = [(word, count) for word, count in word_freq.most_common(10) 
+                                    if count > 3 and len(word) > 4]
+                      
+                      if common_words:
+                          repeated = [f"{word}({count})" for word, count in common_words[:5]]
+                          self.warnings.append(f"Frequently repeated words: {', '.join(repeated)}")
+                      else:
+                          print("✅ No excessive word repetition found")
+                  except Exception as e:
+                      print(f"⚠️ Repetition check failed: {e}")
+                      self.warnings.append("Repetition check could not be completed")
+
+              def check_summary_quality(self):
+                  """Check summary section quality"""
+                  print("📝 Checking summary quality...")
+                  sections = self.cv_data.get('sections', {})
+                  
+                  if 'summary' not in sections:
+                      self.issues.append("Missing professional summary section")
+                      return
+                  
+                  summary_text = ""
+                  for item in sections['summary']:
+                      if 'summary' in item:
+                          summary_text += item['summary']
+                  
+                  if not summary_text:
+                      self.issues.append("Empty summary section")
+                      return
+                  
+                  word_count = len(summary_text.split())
+                  if word_count < 30:
+                      self.warnings.append(f"Summary too short: {word_count} words (recommend 50-100)")
+                  elif word_count > 150:
+                      self.warnings.append(f"Summary too long: {word_count} words (recommend 50-100)")
+                  else:
+                      print(f"✅ Summary length appropriate: {word_count} words")
+
+              def check_contact_info(self):
+                  """Check contact information completeness"""
+                  print("📞 Checking contact information...")
+                  required_fields = ['name', 'email', 'phone', 'location']
+                  missing_fields = [field for field in required_fields 
+                                  if not self.cv_data.get(field)]
+                  
+                  if missing_fields:
+                      self.issues.append(f"Missing contact info: {', '.join(missing_fields)}")
+                  else:
+                      print("✅ Contact information complete")
+
+              def check_readability(self):
+                  """Check text readability"""
+                  print("📖 Checking readability...")
+                  text = self.extract_text_content()
+                  
+                  # Remove markdown and special formatting
+                  clean_text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)
+                  clean_text = re.sub(r'[^\w\s.,!?]', ' ', clean_text)
+                  
+                  if len(clean_text) < 100:
+                      self.warnings.append("Insufficient text content for readability analysis")
+                      return
+                  
+                  try:
+                      reading_ease = textstat.flesch_reading_ease(clean_text)
+                      grade_level = textstat.flesch_kincaid_grade(clean_text)
+                      
+                      if reading_ease < 30:
+                          self.warnings.append(f"Text may be too complex (Reading ease: {reading_ease:.1f})")
+                      elif reading_ease > 80:
+                          print(f"✅ Text is easily readable (Reading ease: {reading_ease:.1f})")
+                      
+                      if grade_level > 12:
+                          self.warnings.append(f"Text complexity high (Grade level: {grade_level:.1f})")
+                      else:
+                          print(f"✅ Text complexity appropriate (Grade level: {grade_level:.1f})")
+                  except Exception as e:
+                      print(f"⚠️ Readability check failed: {e}")
+                      self.warnings.append("Readability check could not be completed")
+
+              def run_analysis(self):
+                  """Run all analysis checks"""
+                  print("🔍 Starting CV Analysis...")
+                  print("=" * 50)
+                  
+                  self.check_contact_info()
+                  self.check_spelling_and_grammar()
+                  self.check_summary_quality()
+                  self.check_buzzwords_and_cliches()
+                  self.check_action_verbs()
+                  self.check_filler_words()
+                  self.check_quantification()
+                  self.check_date_consistency()
+                  self.check_repetition()
+                  self.check_readability()
+                  
+                  print("\n" + "=" * 50)
+                  print("📊 ANALYSIS RESULTS")
+                  print("=" * 50)
+                  
+                  if self.issues:
+                      print("\n❌ CRITICAL ISSUES:")
+                      for issue in self.issues:
+                          print(f"  • {issue}")
+                  
+                  if self.warnings:
+                      print("\n⚠️  WARNINGS:")
+                      for warning in self.warnings:
+                          print(f"  • {warning}")
+                  
+                  if self.suggestions:
+                      print("\n💡 SUGGESTIONS:")
+                      for suggestion in self.suggestions:
+                          print(f"  • {suggestion}")
+                  
+                  if not self.issues and not self.warnings:
+                      print("\n✅ No issues found! Your CV looks ATS-friendly.")
+                  
+                  # Set exit code based on issues
+                  if self.issues:
+                      print(f"\n🔴 Analysis completed with {len(self.issues)} critical issues")
+                      return 1
+                  elif self.warnings:
+                      print(f"\n🟡 Analysis completed with {len(self.warnings)} warnings")
+                      return 0
+                  else:
+                      print("\n🟢 Analysis completed successfully")
+                      return 0
+
+          if __name__ == "__main__":
+              if len(sys.argv) != 2:
+                  print("Usage: python cv_analyzer.py <yaml_file>")
+                  sys.exit(1)
+              
+              analyzer = CVAnalyzer(sys.argv[1])
+              exit_code = analyzer.run_analysis()
+              sys.exit(exit_code)
+          EOF
+
+      # Step 6: Run CV analysis
+      - name: Run CV Analysis
+        run: |
+          python cv_analyzer.py Bhavesh_Kakrotra_CV.yaml
+        continue-on-error: true
+
+      # Step 7: YAML Lint Check
+      - name: YAML Lint Check
+        run: |
+          python -c "
+          import yaml
+          import sys
+          try:
+              with open('Bhavesh_Kakrotra_CV.yaml', 'r') as f:
+                  yaml.safe_load(f)
+              print('✅ YAML syntax is valid')
+          except yaml.YAMLError as e:
+              print(f'❌ YAML syntax error: {e}')
+              sys.exit(1)
+          "
+
+      # Step 8: Render CV
+      - name: Render CV
+        run: |
+          set -e
+          rendercv render Bhavesh_Kakrotra_CV.yaml
+        continue-on-error: false
+
+      # Step 9: Upload analysis results
+      - name: Create analysis summary
+        if: always()
+        run: |
+          echo "# CV Analysis Summary" > analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "**Analysis Date:** $(date)" >> analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "**Commit:** ${{ github.sha }}" >> analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "**Branch:** ${{ github.ref_name }}" >> analysis_summary.md
+          echo "" >> analysis_summary.md
+          echo "For detailed analysis results, check the job logs above." >> analysis_summary.md
+
+      # Step 10: Upload CV as artifact
+      - name: Upload CV as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bhavesh_Kakrotra_CV
+          path: |
+            rendercv_output/Bhavesh_Kakrotra_CV.pdf
+            analysis_summary.md
+        continue-on-error: false
+
+      # Step 11: Comment on PR (if it's a PR)
+      - name: Comment PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (fs.existsSync('analysis_summary.md')) {
+              const summary = fs.readFileSync('analysis_summary.md', 'utf8');
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## 🔍 CV Analysis Complete\n\n${summary}\n\nCheck the [workflow run](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for detailed analysis results.`
+              });
+            }
+
+      # Optional Step: Clean up
+      - name: Clean up
+        if: always()
+        run: |
+          echo "Cleanup completed"
+        continue-on-error: true

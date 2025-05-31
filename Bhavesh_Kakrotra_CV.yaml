@@ -9,53 +9,41 @@ cv:
       username: bhaveshs6
     - network: GitHub
       username: bhaveshs6
-    - network: Mastodon
-      username: "@bhaveshs6@mastodon.social"
+    # - network: Mastodon
+    #   username: "@bhaveshs6@mastodon.social"
   sections:
     summary:
-      - name: ""
+      - name: ''
         summary: |
-          MLOps Engineer with expertise in deploying and managing machine learning workflows on cloud platforms like AWS and Databricks. Skilled in CI/CD pipeline creation, containerization, and orchestration using Kubernetes and Kubeflow. Proficient in integrating DevOps practices with machine learning to ensure scalable, reliable, and efficient model deployment. Experienced in building end-to-end solutions with FastAPI, ReactJS, and Evidently AI for monitoring and performance optimization.
-    certifications:
-      - title: Red Hat Certified Engineer
-        authors:
-          - Advanced skills in automating system administration tasks using Ansible, building on RHCSA expertise in managing, configuring, and troubleshooting Red Hat Enterprise Linux systems.
-        date: 2022-08
-        url: https://rhtapps.redhat.com/verify?certId=210100327
-
-      - title: Red Hat Certified System Administrator
-        authors:
-          - Proven ability to perform core system administration skills in Red Hat Enterprise Linux environments.
-        date: 2022-08
-        url: https://rhtapps.redhat.com/verify?certId=210100327
+          MLOps Engineer with 2+ years architecting scalable ML pipelines and delivering cloud-native solutions across AWS, Databricks, and Kubernetes. Spearheads initiatives cutting deployment time by 80% and supporting 10K+ monthly users. Implements production-ready machine learning solutions driving measurable business outcomes for Fortune 500 clients in the retail and healthcare sectors.
 
     experience:
       - company: Sigmoid Analytics
-        position: Assosiate DataOps Engineer
+        position: MLOps Engineer / Associate DataOps Engineer
         location: Bangalore, India
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Developed a comprehensive MLOps framework to streamline the deployment of ML projects on Databricks, including customizable templates for starter, time series, and classification models.
-          - Integrated GitHub Actions and Azure Pipelines for automated testing, deployment, and version control.
-          - Designed and implemented a complete front-end and back-end solution for LLM (Large Language Model) and RAG (Retrieval-Augmented Generation) applications using FastAPI and ReactJS.
-          - Integrated OpenAI API for enabling natural language queries across databases, documents, and audio files.
-          - Implemented user authentication via MongoDB to ensure secure access.
-          - Deployed ML workflows using Kubeflow hosted on EKS, integrating with Kubernetes for scalable deployment and management.
-          - Established CI/CD pipelines for SageMaker projects to automate model training, validation, and deployment.
-          - Built a custom data drift detection and model monitoring solution using the Evidently AI library.
-          - Designed dynamic HTML reports and dashboards to track model performance and facilitate timely interventions.
-          - Deployed and scheduled complex workflows in Databricks using a proprietary client framework.
-          - Implemented CI/CD pipelines for seamless deployment and testing of ML models on Databricks, ensuring high-quality production-ready models.
+          - Engineered scalable MLOps framework accelerating Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** for generic, time series, and classification models across 100+ projects.
+          - Architected LLM+RAG system with FastAPI and ReactJS using Azure OpenAI and LangChain integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication.
+          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to accommodate 100+ concurrent jobs.
+          - Streamlined CI/CD pipelines for 5+ SageMaker projects, accelerating release cycles and maintaining model validation errors under 2%.
+          - Developed custom data drift detection solution leveraging Evidently AI to monitor 20+ key features with automatic alerts at a 5% deviation.
+          # - Accelerated ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
+          # - Optimized scheduling for 30+ ML workflows, increasing pipeline throughput and reducing cross-team conflicts by 90%.
+          - Coached 10+ ML Engineers on proprietary client frameworks for deploying data science notebook-based workflows on Databricks, ensuring seamless knowledge transfer and team scalability.
+          # - Mentored 4 junior engineers in automating deployment and scheduling of workflows, dashboards, and infrastructure components using Databricks Asset Bundles, improving team deployment efficiency by 50%.
+          - Directed cross-functional team of 4 junior engineers to automate deployment and scheduling using Databricks Asset Bundles, accelerating release velocity by 50% and standardizing CI/CD process.
+          - Executed demand forecasting analysis for Fortune 500 US clients, processing 500K+ SKU data points optimizing inventory management and reducing stockouts by 25%.
 
       - company: Capgemini
-        position: Senior Data Analyst Intern
+        position: Senior Data Analyst - Intern
         location: Mumbai, India
         start_date: 2022-02-04
         end_date: 2022-04-28
         highlights:
-          - Developed the back-end using Java with the Spring framework.
-          - Worked on the front-end using JavaScript with React and Redux libraries.
+          - Created 5+ backend microservices using Java and Spring framework, enabling seamless handling of enterprise-grade traffic while collaborating with cross-functional teams exceeding project delivery timelines.
+          - Constructed responsive, modular front-end components with React and Redux, decreasing load time by 30% and enhancing user experience through iterative feedback cycles.
 
     skills:
       - label: Programming Languages
@@ -65,15 +53,28 @@ cv:
       - label: Backend
         details: FastAPI, Flask
       - label: Cloud Platforms
-        details: AWS, Azure, Databricks
+        details: AWS, Microsoft Azure, Databricks
       - label: Machine Learning
-        details: Time series, classification, MLops, LLMops, Statistics, DVC, Langchain, Kubeflow
+        details: Time Series Analysis, Classification, LLMOps, Statistical Modeling, DVC, LangChain, Kubeflow, MLflow
       - label: DevOps
-        details: Ansible, Docker, Kubernetes, Terraform, GitHub Actions, Azure Pipelines, Jenkins, 
+        details: Ansible, Docker, Kubernetes, Terraform, GitHub Actions, Azure Pipelines, Jenkins
       - label: Databases
         details: MySQL, MongoDB, PostgreSQL
       - label: Operating Systems
         details: Linux (Red Hat Enterprise Linux 8.2), Windows
+      - label: Languages
+        details: English (Proficiency, C2), Hindi (Native)
+
+    certifications:
+      - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
+        authors:
+          - Advanced system administration and automation using Ansible across RHEL systems.
+        date: 2022-08
+
+      - title: '[Red Hat® Certified System Administrator (RHCSA)](https://rhtapps.redhat.com/verify?certId=210100327)'
+        authors:
+          - Comprehensive Linux system administration, CLI tools, scripting, user management, containers, and SELinux.
+        date: 2022-08
 
     education:
       - institution: G H Raisoni College of Engineering
@@ -82,6 +83,68 @@ cv:
         location: Nagpur, India
         start_date: 2018-08
         end_date: 2022-07
+
+      # - institution: Stanford University
+      #   area: Machine Learning Specialization
+      #   degree: Audited
+      #   location: Coursera
+      #   start_date: 2025-03
+      #   end_date: 2025-05
+
+    projects:
+
+      # - name: Multi-tier Web Application over GCP
+      #   start_date: 2023-01
+      #   end_date: 2023-03
+      #   summary: Led deployment of a multi-tier web application on Google Cloud, supporting multiple microservices and 100,000+ monthly users.
+      #   highlights:
+      #     - Utilized VPC Peering, SQL Database, and Kubernetes Cluster Service, maintaining 99.95% uptime across 3+ regional clusters.
+
+      # - name: Ansible Provisioning Projects
+      #   start_date: 2023-04
+      #   end_date: 2023-06
+      #   summary: Automated provisioning for 50+ servers with Ansible and Terraform.
+      #   highlights:
+      #     - Launched a Hadoop cluster on 20+ nodes.
+      #     - Provisioned and scaled Kubernetes cluster to 100+ pods.
+      #     - Configured load balancer, increasing traffic handling capacity by 30%.
+
+      - name: Integration of Computer Vision and NumPy
+        date: 2022-04
+        summary: Leveraged image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
+        highlights:
+          - Achieved 100% accuracy in complex image transformations programmatically swapping logos on 2 sample images via NumPy.
+
+      # - name: AWS CLI for Hosting with CDN
+      #   start_date: 2023-09
+      #   end_date: 2023-10
+      #   summary: Managed content hosting with AWS CLI and CDN, ensuring 99.9% global availability and serving 1 million+ monthly requests.
+
+      - name: Lung Infection Detector App
+        start_date: 2021-12
+        end_date: 2022-03
+        summary: Deployed deep learning-powered diagnostic tool achieving 92% model accuracy, launched across Android, iOS, and Web platforms serving 5,000+ users with real-time infection detection capabilities.
+
+      - name: Medical Assistant on Cloud
+        start_date: 2021-08
+        end_date: 2021-11
+        summary: Launched intelligent cloud-integrated chatbot providing real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
+        highlights:
+          - Implemented scalable web application using CGI-based Python backend and Apache httpd, serving 5,000+ users daily with 99.9% uptime; reduced server response time by 15% through optimization.
+          - Integrated modules for diabetes detection and hospital info retrieval using AWS services.
+    
+    professional_development:
+      - company: Stanford University
+        position: Machine Learning Specialization
+        location: Audited, Coursera
+        start_date: 2025-03
+        end_date: 2025-05
+
+      - company: Google
+        position: IT Automation with Python Professional Certificate
+        location: Coursera
+        start_date: 2021-07
+        end_date: 2021-09
 
 design:
   theme: engineeringclassic
@@ -96,7 +159,7 @@ design:
   colors:
     text: rgb(0, 0, 0)
     name: rgb(0, 79, 144)
-    connections: rgb(0, 79, 144)
+    connections: rgb(0, 79, 130)
     section_titles: rgb(0, 79, 144)
     links: rgb(0, 79, 144)
     last_updated_date_and_page_numbering: rgb(128, 128, 128)
@@ -170,13 +233,12 @@ design:
         HIGHLIGHTS
       date_and_location_column_template: DATE
     publication_entry:
-      main_column_first_row_template: '**TITLE**'
+      main_column_first_row_template: '**TITLE**, **URL**'
       main_column_second_row_template: |-
         AUTHORS
         URL (JOURNAL)
       main_column_second_row_without_journal_template: |-
         AUTHORS
-        URL
       main_column_second_row_without_url_template: |-
         AUTHORS
         JOURNAL
@@ -185,13 +247,13 @@ locale:
   language: en
   phone_number_format: national
   page_numbering_template: NAME - Page PAGE_NUMBER of TOTAL_PAGES
-  last_updated_date_template: Last updated in TODAY
+  last_updated_date_template: ''
   date_template: MONTH_ABBREVIATION YEAR
   month: month
   months: months
   year: year
   years: years
-  present: present
+  present: Present
   to: –
   abbreviations_for_months:
     - Jan
@@ -199,10 +261,10 @@ locale:
     - Mar
     - Apr
     - May
-    - June
-    - July
+    - Jun
+    - Jul
     - Aug
-    - Sept
+    - Sep
     - Oct
     - Nov
     - Dec
