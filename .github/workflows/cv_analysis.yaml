@@ -47,7 +47,7 @@ jobs:
           pip install nltk
           pip install python-dateutil
           pip install requests
-          python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"
+          python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"
 
       # Step 5: Create CV analysis script
       - name: Create CV analysis script
@@ -270,18 +270,24 @@ jobs:
                   print("🔄 Checking for repetition...")
                   text = self.extract_text_content().lower()
                   
-                  # Remove common words and split into phrases
-                  stop_words = set(stopwords.words('english'))
-                  words = [w for w in word_tokenize(text) if w.isalpha() and w not in stop_words]
-                  
-                  # Check word frequency
-                  word_freq = Counter(words)
-                  common_words = [(word, count) for word, count in word_freq.most_common(10) 
-                                if count > 3 and len(word) > 4]
-                  
-                  if common_words:
-                      repeated = [f"{word}({count})" for word, count in common_words[:5]]
-                      self.warnings.append(f"Frequently repeated words: {', '.join(repeated)}")
+                  try:
+                      # Remove common words and split into phrases
+                      stop_words = set(stopwords.words('english'))
+                      words = [w for w in word_tokenize(text) if w.isalpha() and w not in stop_words]
+                      
+                      # Check word frequency
+                      word_freq = Counter(words)
+                      common_words = [(word, count) for word, count in word_freq.most_common(10) 
+                                    if count > 3 and len(word) > 4]
+                      
+                      if common_words:
+                          repeated = [f"{word}({count})" for word, count in common_words[:5]]
+                          self.warnings.append(f"Frequently repeated words: {', '.join(repeated)}")
+                      else:
+                          print("✅ No excessive word repetition found")
+                  except Exception as e:
+                      print(f"⚠️ Repetition check failed: {e}")
+                      self.warnings.append("Repetition check could not be completed")
 
               def check_summary_quality(self):
                   """Check summary section quality"""
@@ -334,16 +340,22 @@ jobs:
                       self.warnings.append("Insufficient text content for readability analysis")
                       return
                   
-                  reading_ease = textstat.flesch_reading_ease(clean_text)
-                  grade_level = textstat.flesch_kincaid_grade(clean_text)
-                  
-                  if reading_ease < 30:
-                      self.warnings.append(f"Text may be too complex (Reading ease: {reading_ease:.1f})")
-                  elif reading_ease > 80:
-                      print(f"✅ Text is easily readable (Reading ease: {reading_ease:.1f})")
-                  
-                  if grade_level > 12:
-                      self.warnings.append(f"Text complexity high (Grade level: {grade_level:.1f})")
+                  try:
+                      reading_ease = textstat.flesch_reading_ease(clean_text)
+                      grade_level = textstat.flesch_kincaid_grade(clean_text)
+                      
+                      if reading_ease < 30:
+                          self.warnings.append(f"Text may be too complex (Reading ease: {reading_ease:.1f})")
+                      elif reading_ease > 80:
+                          print(f"✅ Text is easily readable (Reading ease: {reading_ease:.1f})")
+                      
+                      if grade_level > 12:
+                          self.warnings.append(f"Text complexity high (Grade level: {grade_level:.1f})")
+                      else:
+                          print(f"✅ Text complexity appropriate (Grade level: {grade_level:.1f})")
+                  except Exception as e:
+                      print(f"⚠️ Readability check failed: {e}")
+                      self.warnings.append("Readability check could not be completed")
 
               def run_analysis(self):
                   """Run all analysis checks"""
