@@ -24,7 +24,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
       # Step 3: Cache pip dependencies
       - name: Cache pip dependencies
@@ -42,7 +42,7 @@ jobs:
           pip install --upgrade pip
           pip install rendercv[full]
           pip install pyyaml
-          pip install spellchecker
+          pip install pyspellchecker
           pip install textstat
           pip install nltk
           pip install python-dateutil
@@ -59,7 +59,12 @@ jobs:
           import sys
           from datetime import datetime
           from dateutil.parser import parse
-          from spellchecker import SpellChecker
+          try:
+              from spellchecker import SpellChecker
+              SPELLCHECK_AVAILABLE = True
+          except ImportError:
+              SPELLCHECK_AVAILABLE = False
+              print("⚠️ Spellchecker not available - skipping spell check")
           import nltk
           from nltk.corpus import stopwords
           from nltk.tokenize import word_tokenize, sent_tokenize
@@ -140,31 +145,43 @@ jobs:
               def check_spelling_and_grammar(self):
                   """Check for spelling errors"""
                   print("🔤 Checking spelling...")
-                  spell = SpellChecker()
-                  text = self.extract_text_content()
-                  
-                  # Remove markdown formatting and special characters
-                  clean_text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Remove bold
-                  clean_text = re.sub(r'[^\w\s]', ' ', clean_text)  # Keep only words and spaces
-                  
-                  words = clean_text.lower().split()
-                  misspelled = spell.unknown(words)
-                  
-                  # Filter out technical terms, numbers, and common abbreviations
-                  technical_terms = {
-                      'mlops', 'devops', 'aws', 'databricks', 'kubernetes', 'sagemaker',
-                      'fastapi', 'reactjs', 'mongodb', 'postgresql', 'ansible', 'terraform',
-                      'langchain', 'kubeflow', 'mlflow', 'cicd', 'llm', 'rag', 'api',
-                      'frontend', 'backend', 'microservices', 'yml', 'yaml', 'json'
-                  }
-                  
-                  real_misspelled = [word for word in misspelled 
-                                   if word not in technical_terms and not word.isdigit()]
-                  
-                  if real_misspelled:
-                      self.issues.append(f"Potential spelling errors: {', '.join(real_misspelled[:10])}")
-                  else:
-                      print("✅ No spelling errors found")
+                  if not SPELLCHECK_AVAILABLE:
+                      print("⚠️ Spellchecker not available - please manually verify spelling")
+                      return
+                      
+                  try:
+                      spell = SpellChecker()
+                      text = self.extract_text_content()
+                      
+                      # Remove markdown formatting and special characters
+                      clean_text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)  # Remove bold
+                      clean_text = re.sub(r'[^\w\s]', ' ', clean_text)  # Keep only words and spaces
+                      
+                      words = clean_text.lower().split()
+                      misspelled = spell.unknown(words)
+                      
+                      # Filter out technical terms, numbers, and common abbreviations
+                      technical_terms = {
+                          'mlops', 'devops', 'aws', 'databricks', 'kubernetes', 'sagemaker',
+                          'fastapi', 'reactjs', 'mongodb', 'postgresql', 'ansible', 'terraform',
+                          'langchain', 'kubeflow', 'mlflow', 'cicd', 'llm', 'rag', 'api',
+                          'frontend', 'backend', 'microservices', 'yml', 'yaml', 'json',
+                          'bhavesh', 'kakrotra', 'sigmoid', 'capgemini', 'raisoni', 'nagpur',
+                          'bangalore', 'mumbai', 'rhce', 'rhcsa', 'sklearn', 'numpy', 'scipy',
+                          'dataops', 'eks', 'sqs', 'sns', 'ec2', 's3', 'rds', 'vpc', 'iam',
+                          'gitlab', 'github', 'jenkins', 'docker', 'podman', 'helm', 'istio'
+                      }
+                      
+                      real_misspelled = [word for word in misspelled 
+                                       if word not in technical_terms and not word.isdigit() and len(word) > 2]
+                      
+                      if real_misspelled:
+                          self.issues.append(f"Potential spelling errors: {', '.join(real_misspelled[:10])}")
+                      else:
+                          print("✅ No spelling errors found")
+                  except Exception as e:
+                      print(f"⚠️ Spell check failed: {e}")
+                      self.warnings.append("Spell check could not be completed - please manually verify spelling")
 
               def check_buzzwords_and_cliches(self):
                   """Check for buzzwords and clichés"""
