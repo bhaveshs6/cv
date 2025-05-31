@@ -15,7 +15,7 @@ cv:
     summary:
       - name: ''
         summary: |
-          MLOps Engineer with 2+ years of experience architecting scalable ML pipelines and delivering cloud-native solutions across AWS, Databricks, and Kubernetes. Known for spearheading initiatives that cut deployment time by 80% and supported 10K+ monthly users. A strong background in implementing production-ready machine learning solutions that drive measurable business outcomes, with experience supporting Fortune 500 clients in the retail and healthcare sectors.
+          MLOps Engineer with 2+ years architecting scalable ML pipelines and delivering cloud-native solutions across AWS, Databricks, and Kubernetes. Spearheads initiatives cutting deployment time by 80% and supporting 10K+ monthly users. Implements production-ready machine learning solutions driving measurable business outcomes for Fortune 500 clients in the retail and healthcare sectors.
 
     experience:
       - company: Sigmoid Analytics
@@ -24,17 +24,17 @@ cv:
         start_date: 2023-06-12
         end_date: present
         highlights:
-          - Engineered a scalable MLOps framework that accelerated Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** tailored for generic, time series, and classification models across 100+ projects.
-          - Architected an LLM+RAG system using FastAPI and ReactJS with Azure OpenAI and LangChain integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication.
-          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to accomodate 100+ concurrent jobs.
-          - Streamlined CI/CD pipelines for 5+ SageMaker projects, eliminating manual deployment time by 80% and ensuring model validation errors under 2%.
-          - Developed a custom data drift detection solution levaraging Evidently AI to monitor 20+ key features with automatic alerts at a 5% deviation.
+          - Engineered scalable MLOps framework accelerating Databricks ML project onboarding by **40%**, incorporating **3 reusable templates** for generic, time series, and classification models across 100+ projects.
+          - Architected LLM+RAG system with FastAPI and ReactJS using Azure OpenAI and LangChain integration, achieving sub-second latency for 10K+ monthly users and securing access for 500+ users via role-based MongoDB authentication.
+          - Orchestrated 10+ ML workflows on Amazon EKS with Kubeflow, maintaining **99.9% uptime** while auto-scaling to accommodate 100+ concurrent jobs.
+          - Streamlined CI/CD pipelines for 5+ SageMaker projects, accelerating release cycles and maintaining model validation errors under 2%.
+          - Developed custom data drift detection solution leveraging Evidently AI to monitor 20+ key features with automatic alerts at a 5% deviation.
           # - Accelerated ML model release velocity with Databricks CI/CD workflows, supporting weekly deployments and halving QA timelines.
           # - Optimized scheduling for 30+ ML workflows, increasing pipeline throughput and reducing cross-team conflicts by 90%.
-          - Coached 10+ new joiners on proprietary client frameworks for deploying data science notebook-based workflows on Databricks, ensuring seamless knowledge transfer and team scalability.
+          - Coached 10+ ML Engineers on proprietary client frameworks for deploying data science notebook-based workflows on Databricks, ensuring seamless knowledge transfer and team scalability.
           # - Mentored 4 junior engineers in automating deployment and scheduling of workflows, dashboards, and infrastructure components using Databricks Asset Bundles, improving team deployment efficiency by 50%.
-          - Directed cross-functional team of 4 junior engineers to automate deployment and scheduling using Databricks Asset Bundles, accelerating release velocity by 50% and ensuring CI/CD standardization.
-          - Executed demand forecasting analysis for Fortune 500 US clients, processing 500K+ SKU data points to optimize inventory management and reduce stockouts by 25%.
+          - Directed cross-functional team of 4 junior engineers to automate deployment and scheduling using Databricks Asset Bundles, accelerating release velocity by 50% and standardizing CI/CD process.
+          - Executed demand forecasting analysis for Fortune 500 US clients, processing 500K+ SKU data points optimizing inventory management and reducing stockouts by 25%.
 
       - company: Capgemini
         position: Senior Data Analyst - Intern
@@ -42,7 +42,7 @@ cv:
         start_date: 2022-02-04
         end_date: 2022-04-28
         highlights:
-          - Created 5+ backend microservices using Java and Spring framework, enabling seamless handling of enterprise-grade traffic while collaborating with cross-functional teams to exceed project delivery timelines.
+          - Created 5+ backend microservices using Java and Spring framework, enabling seamless handling of enterprise-grade traffic while collaborating with cross-functional teams exceeding project delivery timelines.
           - Constructed responsive, modular front-end components with React and Redux, decreasing load time by 30% and enhancing user experience through iterative feedback cycles.
 
     skills:
@@ -55,7 +55,7 @@ cv:
       - label: Cloud Platforms
         details: AWS, Microsoft Azure, Databricks
       - label: Machine Learning
-        details: Time Series Analysis, Classification, LLMops, Statistical Modeling, DVC, LangChain, Kubeflow, MLflow
+        details: Time Series Analysis, Classification, LLMOps, Statistical Modeling, DVC, LangChain, Kubeflow, MLflow
       - label: DevOps
         details: Ansible, Docker, Kubernetes, Terraform, GitHub Actions, Azure Pipelines, Jenkins
       - label: Databases
@@ -63,7 +63,7 @@ cv:
       - label: Operating Systems
         details: Linux (Red Hat Enterprise Linux 8.2), Windows
       - label: Languages
-        details: English (proficiency, C2), Hindi (native)
+        details: English (Proficiency, C2), Hindi (Native)
 
     certifications:
       - title: '[Red Hat® Certified Engineer (RHCE)](https://rhtapps.redhat.com/verify?certId=210100327)'
@@ -111,9 +111,9 @@ cv:
 
       - name: Integration of Computer Vision and NumPy
         date: 2022-04
-        summary: Levaraged image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
+        summary: Leveraged image processing tools using Computer Vision and NumPy, enabling transformation of 10,000+ images with sub-200ms latency.
         highlights:
-          - Achieved 100% accuracy in complex image transformations by programmatically swapping logos on 2 sample images via Numpy.
+          - Achieved 100% accuracy in complex image transformations programmatically swapping logos on 2 sample images via NumPy.
 
       # - name: AWS CLI for Hosting with CDN
       #   start_date: 2023-09
@@ -123,14 +123,14 @@ cv:
       - name: Lung Infection Detector App
         start_date: 2021-12
         end_date: 2022-03
-        summary: Deployed deep learning-powered diagnostic tool achieving 92% model accuracy, successfully launched across Android, iOS, and Web platforms serving 5,000+ users with real-time infection detection capabilities.
+        summary: Deployed deep learning-powered diagnostic tool achieving 92% model accuracy, launched across Android, iOS, and Web platforms serving 5,000+ users with real-time infection detection capabilities.
 
       - name: Medical Assistant on Cloud
         start_date: 2021-08
         end_date: 2021-11
         summary: Launched intelligent cloud-integrated chatbot providing real-time medical support, processing 5,000+ monthly queries at 99.5% uptime.
         highlights:
-          - Engineered a scalable web application using CGI-based Python backend and Apache httpd, serving 5,000+ users daily with 99.9% uptime; reduced server response time by 15% through optimization techniques.
+          - Implemented scalable web application using CGI-based Python backend and Apache httpd, serving 5,000+ users daily with 99.9% uptime; reduced server response time by 15% through optimization.
           - Integrated modules for diabetes detection and hospital info retrieval using AWS services.
     
     professional_development:
